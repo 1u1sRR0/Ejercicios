@@ -1,0 +1,24 @@
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.io.IOException;
+
+public class LeerArchivoTexto {
+
+    public static void main(String[] args) {
+
+        BufferedReader reader;
+
+        try {
+            reader = new BufferedReader(new FileReader("ruta_del_archivo.txt"));
+            String linea = reader.readLine();
+            while (linea != null) {
+                System.out.println(linea);
+                // lea la próxima línea
+                linea = reader.readLine();
+            }
+            reader.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+}
