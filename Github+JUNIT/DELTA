@@ -1,0 +1,36 @@
+import org.junit.Assert;
+import org.junit.Test;
+
+public class Calculadora2Test {
+    private static final double DELTA = 1e-15;
+
+    @Test
+    public void testSuma() {
+        Assert.assertEquals("Error en la suma", 7.0, Calculadora2.suma(3.0, 4.0), DELTA);
+    }
+
+    @Test
+    public void testResta() {
+        Assert.assertEquals("Error en la resta", -1.0, Calculadora2.resta(3.0, 4.0), DELTA);
+    }
+
+    @Test
+    public void testMultiplicacion() {
+        Assert.assertEquals("Error en la multiplicación", 12.0, Calculadora2.multiplicacion(3.0, 4.0), DELTA);
+    }
+
+    @Test
+    public void testDivision() {
+        Assert.assertEquals("Error en la división", 0.75, Calculadora2.division(3.0, 4.0), DELTA);
+    }
+
+    @Test
+    public void testExponenciacion() {
+        Assert.assertEquals("Error en la exponenciación", 81.0, Calculadora2.exponenciacion(3.0, 4.0), DELTA);
+    }
+
+    @Test
+    public void testModulo() {
+        Assert.assertEquals("Error en el módulo", 1.0, Calculadora2.modulo(10.0, 3.0), DELTA);
+    }
+}
