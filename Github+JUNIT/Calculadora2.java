@@ -1,3 +1,4 @@
+import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class Calculadora2 {
@@ -5,10 +6,31 @@ public class Calculadora2 {
         Scanner sc = new Scanner(System.in);
         System.out.println(
                 "Esta calculadora únicamente responde operaciones básicas,\n dentro de las opciones: Suma, Resta, Multiplicación, División, Exponenciación y Módulo.");
-        System.out.println("Introduce el primer número: ");
-        double num1 = sc.nextDouble();
-        System.out.println("Introduce el segundo número: ");
-        double num2 = sc.nextDouble();
+        
+        double num1 = 0;
+        while (true) {
+            try {
+                System.out.println("Introduce el primer número: ");
+                num1 = sc.nextDouble();
+                break;
+            } catch (InputMismatchException e) {
+                System.out.println("Por favor, introduce un número.");
+                sc.next();  // Descartar entrada no válida
+            }
+        }
+        
+        double num2 = 0;
+        while (true) {
+            try {
+                System.out.println("Introduce el segundo número: ");
+                num2 = sc.nextDouble();
+                break;
+            } catch (InputMismatchException e) {
+                System.out.println("Por favor, introduce un número.");
+                sc.next();  // Descartar entrada no válida
+            }
+        }
+
         System.out.println("Introduce la operación a realizar: ");
         String operacion = sc.next();
         switch (operacion) {
