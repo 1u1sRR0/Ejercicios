@@ -1,0 +1,25 @@
+import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.*;
+
+class MultiplicacionMatricesTest {
+
+    @Test
+    void testMultiplicarMatrices() {
+        int[][] matrizA = {{1, 2}, {3, 4}};
+        int[][] matrizB = {{5, 6}, {7, 8}};
+        int[][] esperado = {{19, 22}, {43, 50}};
+
+        assertArrayEquals(esperado, MultiplicacionMatrices.multiplicarMatrices(matrizA, matrizB));
+    }
+
+    @Test
+    void testMultiplicarMatricesDimensionesIncorrectas() {
+        int[][] matrizA = {{1, 2}, {3, 4}};
+        int[][] matrizB = {{5, 6, 7}, {8, 9, 10}};
+
+        Exception exception = assertThrows(IllegalArgumentException.class, () ->
+                MultiplicacionMatrices.multiplicarMatrices(matrizA, matrizB));
+
+        assertEquals("El número de columnas de A no coincide con el número de filas de B", exception.getMessage());
+    }
+}
